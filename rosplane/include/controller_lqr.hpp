@@ -5,6 +5,8 @@
 
 #include <pybind11/embed.h>
 
+namespace py = pybind11;
+
 namespace rosplane
 {
 
@@ -108,6 +110,10 @@ private:
    * Also declares default values before they are set to the values set in the launch script.
   */
   void declare_parameters();
+
+  void pack_for_python(const Input & input);
+  void unpack_from_python(Output & output);
+
 };
 } // namespace rosplane
 

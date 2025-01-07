@@ -17,6 +17,8 @@ ControllerLQR::ControllerLQR()
   declare_parameters();
   // Set parameters according to the parameters in the launch file, otherwise use the default values
   params_.set_parameters();
+
+  py::initialize_interpreter();
 }
 
 void ControllerLQR::take_off(const Input & input, Output & output)
@@ -45,6 +47,8 @@ void ControllerLQR::climb_exit()
 
 void ControllerLQR::altitude_hold(const Input & input, Output & output)
 {
+
+  
 
 }
 
