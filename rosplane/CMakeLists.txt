@@ -77,6 +77,17 @@ install(TARGETS
   rosplane_controller
   DESTINATION lib/${PROJECT_NAME})
 
+# LQR Controller
+add_executable(rosplane_lqr
+  src/controller_base.cpp
+  src/controller_state_machine.cpp
+  src/controller_lqr.cpp)
+ament_target_dependencies(rosplane_lqr rosplane_msgs rosflight_msgs rclcpp rclpy Eigen3)
+target_link_libraries(rosplane_lqr param_manager)
+install(TARGETS
+  rosplane_lqr
+  DESTINATION lib/${PROJECT_NAME})
+
 # Follower
 add_executable(rosplane_path_follower
   src/path_follower_example.cpp
